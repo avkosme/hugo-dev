@@ -8,6 +8,7 @@ RUN git clone https://github.com/go-delve/delve && cd delve && go install github
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.48.0
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0
+RUN go install golang.org/x/vuln/cmd/govulncheck@latest
 RUN apk add docker
 RUN DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker} && mkdir -p $DOCKER_CONFIG/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose && chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest

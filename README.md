@@ -1,4 +1,4 @@
-# Hugo static site generator docker image
+# All In One develop golang app docker image
 
 Use for dev, test, deploy
 

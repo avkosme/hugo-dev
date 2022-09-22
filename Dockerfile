@@ -1,11 +1,12 @@
-FROM golang:1.18-alpine
+FROM arm64v8/golang:1.18-alpine3.15
 LABEL org.opencontainers.image.source https://github.com/avkosme/hugo-dev
 
 RUN apk add --no-cache git rsync sshpass hugo ansible npm openssh-client make g++ python3 curl py3-pip nftables openssl protoc
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN git clone https://github.com/sshuttle/sshuttle.git && cd sshuttle/ && ./setup.py install
+RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.49.0
 RUN git clone https://github.com/go-delve/delve && cd delve && go install github.com/go-delve/delve/cmd/dlv && go build  -o /usr/bin/dvl cmd/dlv/main.go
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.48.0
+
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0
 RUN go install golang.org/x/vuln/cmd/govulncheck@latest

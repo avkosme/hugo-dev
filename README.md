@@ -1,4 +1,4 @@
-# All In One develop golang app docker image
+# Golang app docker image for developing
 
 Use for dev, test, deploy
 

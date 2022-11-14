@@ -1,4 +1,4 @@
-FROM arm64v8/golang:1.18-alpine3.15
+FROM arm64v8/golang:1.19.3-alpine3.15
 LABEL org.opencontainers.image.source https://github.com/avkosme/hugo-dev
 
 RUN apk add --no-cache git rsync sshpass hugo ansible npm openssh-client make g++ python3 curl py3-pip nftables openssl protoc tzdata vim
@@ -16,3 +16,4 @@ RUN go install -tags 'postgres,mysql' github.com/golang-migrate/migrate/v4/cmd/m
 RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 RUN go install golang.org/x/tools/gopls@latest
 RUN git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
+COPY conf/dlv/config.yml  /root/.config/dlv/config.yml

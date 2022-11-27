@@ -1,5 +1,6 @@
 FROM golang:1.19.3-alpine3.15
 LABEL org.opencontainers.image.source https://github.com/avkosme/hugo-dev
+LABEL org.opencontainers.image.description Golang app docker image for developing
 
 RUN apk add --no-cache git rsync sshpass hugo ansible npm openssh-client make g++ python3 curl py3-pip nftables openssl protoc tzdata vim
 RUN ln -s /usr/bin/python3 /usr/bin/python

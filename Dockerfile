@@ -18,3 +18,4 @@ RUN go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
 RUN go install golang.org/x/tools/gopls@latest
 RUN git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 COPY conf/dlv/config.yml  /root/.config/dlv/config.yml
+RUN go install honnef.co/go/tools/cmd/staticcheck@latest

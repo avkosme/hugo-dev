@@ -1,4 +1,4 @@
-FROM golang:1.19.3-alpine3.15
+FROM golang:1.19.4-alpine3.17
 LABEL org.opencontainers.image.source https://github.com/avkosme/hugo-dev
 LABEL org.opencontainers.image.description Golang app docker image for developing
 
